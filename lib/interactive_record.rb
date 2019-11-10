@@ -49,6 +49,10 @@ class InteractiveRecord
     self.class.column_names.delete_if {|col| col == "id"}.join(", ")
   end
 
+  def seld.find_by_name(name)
+    sql = "SELECT * FROM #{self.table_name} WHERE name = ?"
+  end
+
   def self.find_by(attribute_hash)
     value = attribute_hash.values.first
     formatted_value = value.class == Fixnum ? value : "'#{value}'"
