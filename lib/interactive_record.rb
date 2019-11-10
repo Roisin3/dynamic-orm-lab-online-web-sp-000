@@ -51,6 +51,7 @@ class InteractiveRecord
 
   def seld.find_by_name(name)
     sql = "SELECT * FROM #{self.table_name} WHERE name = ?"
+    DB[:conn].execute(sql)
   end
 
   def self.find_by(attribute_hash)
